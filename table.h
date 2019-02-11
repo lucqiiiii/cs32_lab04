@@ -7,6 +7,7 @@
 
 #include "entry.h"
 #include <vector>
+#include <iterator>
 
 class Table{
 
@@ -22,26 +23,26 @@ public:
 
 	std::string get(unsigned int key) const;
 
-	int get_inserted() const;
+//	int get_inserted() const;
 
-	int get_max_entries() const;
+//	int get_max_entries() const;
 
-	std::vector<Entry> get_table(int i) const;
+//	std::vector<Entry> get_table(int i) const;
 
 	bool remove(unsigned int key);
 
-	//void mergesort(Entry temp[], int n);
+	friend std::ostream& operator << (std::ostream& out, const Table& t);
 
-	//void merge(Entry temp[], int n1, int n2);		
-	
 
 private:
-	unsigned int max_entries;
+	int max_entries;
 	std::vector<Entry>* table;
-	int hashFunction(unsigned int key) const;
+	int hashFunction(int key) const;
 	int inserted; // size	
 };
 
-std::ostream& operator << (std::ostream& out, const Table& t);
+void mergesort(Entry temp[], int n);
+
+void merge(Entry temp[], int n1, int n2);		
 
 #endif /* table_h */
