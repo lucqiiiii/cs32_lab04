@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include "table.h"
+#include "entry.h"
 using namespace std;
 
 unsigned int user_get(Table &t);

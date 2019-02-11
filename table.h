@@ -22,9 +22,9 @@ public:
 
 	std::string get(unsigned int key) const;
 
-	int get_inserted() const;
+//	int get_inserted() const;
 
-	int get_max_entries() const;
+//	int get_max_entries() const;
 
 	bool remove(unsigned int key);
 
@@ -32,7 +32,6 @@ public:
 
 	//void merge(Entry temp[], int n1, int n2);		
 	
-	friend std::ostream& operator << (std::ostream& out, const Table& t);
 
 private:
 	unsigned int max_entries;
@@ -41,5 +40,6 @@ private:
 	int inserted; // size	
 };
 
+std::ostream& operator << (std::ostream& out, const Table& t);
 
 #endif /* table_h */

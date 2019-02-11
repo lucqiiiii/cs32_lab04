@@ -3,7 +3,6 @@
 #include <vector>
 using namespace std;
 
-
 Table::Table(unsigned int max_entries){
 	this -> max_entries = max_entries;
 	table = new vector<Entry>[max_entries];
@@ -73,14 +72,14 @@ int Table::hashFunction(unsigned int key) const{
 	return key % max_entries;
 }
 	
-int Table::get_max_entries() const{
+/*int Table::get_max_entries() const{
 	return max_entries;
 }
 
 
 int Table::get_inserted() const{
 	return inserted;
-}
+}*/
 
 void merge(Entry data[], int n1, int n2){
 	Entry *temp;
@@ -120,16 +119,16 @@ void mergesort(Entry temp[], int size){
 	}
 }
 
-ostream& operator << (std::ostream& out,const Table& t){
-	Entry temp[t.get_inserted()];//an array
+std::ostream& operator << (std::ostream& out,const Table& t){
+	Entry temp[t.inserted];//an array
 	int index = 0;
-	for(int i = 0; i < t.get_max_entries(); i++){
+	for(int i = 0; i < t.max_entries; i++){
 		for(int j = 0; j < t.table[i].size(); j++){
 			temp[index++] = t.table[i][j];
 		}
 	}
-	mergesort(temp, t.get_inserted());
-	for(int k = 0; k < t.get_inserted(); k++){
+	mergesort(temp, t.inserted);
+	for(int k = 0; k < t.inserted; k++){
 		out << temp[k] << endl;
 	}
 	return out;
