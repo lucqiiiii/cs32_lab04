@@ -72,14 +72,18 @@ int Table::hashFunction(unsigned int key) const{
 	return key % max_entries;
 }
 	
-/*int Table::get_max_entries() const{
+int Table::get_max_entries() const{
 	return max_entries;
 }
 
 
 int Table::get_inserted() const{
 	return inserted;
-}*/
+}
+
+vector<Entry> Table::get_table(int i ) const{
+	return table[i];
+}
 
 void merge(Entry data[], int n1, int n2){
 	Entry *temp;
@@ -120,15 +124,15 @@ void mergesort(Entry temp[], int size){
 }
 
 std::ostream& operator << (std::ostream& out,const Table& t){
-	Entry temp[t.inserted];//an array
+	Entry temp[t.get_inserted()];//an array
 	int index = 0;
-	for(int i = 0; i < t.max_entries; i++){
-		for(int j = 0; j < t.table[i].size(); j++){
-			temp[index++] = t.table[i][j];
+	for(int i = 0; i < t.get_max_entries(); i++){
+		for(int j = 0; j < t.get_table(i).size(); j++){
+			temp[index++] = (t.get_table(i))[j];
 		}
 	}
-	mergesort(temp, t.inserted);
-	for(int k = 0; k < t.inserted; k++){
+	mergesort(temp, t.get_inserted());
+	for(int k = 0; k < t.get_inserted(); k++){
 		out << temp[k] << endl;
 	}
 	return out;

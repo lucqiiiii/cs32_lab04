@@ -22,9 +22,11 @@ public:
 
 	std::string get(unsigned int key) const;
 
-//	int get_inserted() const;
+	int get_inserted() const;
 
-//	int get_max_entries() const;
+	int get_max_entries() const;
+
+	std::vector<Entry> get_table(int i) const;
 
 	bool remove(unsigned int key);
 
