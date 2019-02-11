@@ -11,7 +11,7 @@
 
 using namespace std;
 
-//unsigned int Entry::accesses = 0;
+unsigned int Entry::accesses = 0;
 
 Entry::Entry(unsigned int key, std::string data)
 : key(key), data(data) { }

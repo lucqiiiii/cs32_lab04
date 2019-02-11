@@ -31,9 +31,9 @@ public:
 
 	bool remove(unsigned int key);
 
-	friend std::ostream& operator << (std::ostream& out, const Table& t);
+	friend std::ostream& operator<< (std::ostream& out, const Table& t);
 
-
+	~Table();
 private:
 	int max_entries;
 	std::vector<Entry>* table;

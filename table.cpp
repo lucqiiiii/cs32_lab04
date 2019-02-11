@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include "entry.h"
+
 Table::Table(unsigned int max_entries){
 	this -> max_entries = max_entries;
 	table = new std::vector<Entry>[max_entries];
@@ -66,8 +68,8 @@ bool Table::remove(unsigned int key){
 	return false;
 }
 
-int Table::hashFunction( int key) const{
-	return key % max_entries;
+int Table::hashFunction(int key) const{
+	return key%max_entries;
 }
 	
 /*int Table::get_max_entries() const{
@@ -83,7 +85,7 @@ vector<Entry> Table::get_table(int i ) const{
 	return table[i];
 }
 */
-void merge(Entry data[], int n1, int n2){
+void merge(Entry arr[], int n1, int n2){
 	Entry *temp;
 	int copied = 0;
 	int copied1 = 0;
@@ -93,26 +95,26 @@ void merge(Entry data[], int n1, int n2){
 	temp = new Entry[n1 + n2];
 	
 	while((copied1 < n1) && (copied2 < n2)){
-		if(data[copied1].get_key() < ((data + n1)[copied2].get_key()))
-			temp[copied++] = data[copied1++];
+		if(arr[copied1].get_key() < ((arr + n1)[copied2].get_key()))
+			temp[copied++] = arr[copied1++];
         	else
-	    		temp[copied++] = (data + n1)[copied2++];
+	    		temp[copied++] = (arr + n1)[copied2++];
    	}	
 	while(copied1 < n1)
-        	temp[copied++] = data[copied1++];
+        	temp[copied++] = arr[copied1++];
     	while(copied2 < n2)
-        	temp[copied++] = (data + n1)[copied2++];
+        	temp[copied++] = (arr + n1)[copied2++];
 
     	for(i = 0; i < n1 + n2; i++){
-        	data[i] = temp[i];
+        	arr[i] = temp[i];
     	}
-    	delete [] temp;
+    	delete []temp;
 }
 
-/*Table::~Table(){
+Table::~Table(){
 	delete []table;
 }
-*/
+
 void mergesort(Entry temp[], int size){
 	int n1;
 	int n2;
@@ -132,17 +134,17 @@ void mergesort(Entry temp[], int size){
 	for(int i = 0; i < )
 }
 */
-std::ostream& operator << (std::ostream& out,const Table& t){
-	Entry temp[t.inserted];//an array
-	int index = 0;
+std::ostream& operator<< (std::ostream& out,const Table& t){
+	Entry arr[t.inserted];//an array
+	int temp = 0;
 	for(int i = 0; i < t.max_entries; i++){
 		for(int j = 0; j < t.table[i].size(); j++){
-			temp[index++] = t.table[i][j];
+			arr[temp++] = t.table[i][j];
 		}
 	}
-	mergesort(temp, t.inserted);
+	mergesort(arr, t.inserted);
 	for(int k = 0; k < t.inserted; k++){
-		out << temp[k] << std::endl;
+		out << arr[k] << std::endl;
 	}
 	return out;
 /*	int size = t.get_inserted();
