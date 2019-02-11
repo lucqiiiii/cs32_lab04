@@ -115,25 +115,18 @@ Table::~Table(){
 	delete []table;
 }
 
-void mergesort(Entry temp[], int size){
+void mergesort(Entry arr[], int size){
 	int n1;
 	int n2;
 	if(size > 1){
 		n1 = size / 2;
 		n2 = size - n1;
-		mergesort(temp, n1);
-		mergesort((temp + n1), n2);
-		merge(temp, n1, n2);
+		mergesort(arr, n1);
+		mergesort((arr + n1), n2);
+		merge(arr, n1, n2);
 	}
 }
 
-/*void Table::copy(int size){
-	int num = size;
-	Entry* temp = new Entry[num];
-	num = 0;
-	for(int i = 0; i < )
-}
-*/
 std::ostream& operator<< (std::ostream& out,const Table& t){
 	Entry arr[t.inserted];//an array
 	int temp = 0;
@@ -147,13 +140,5 @@ std::ostream& operator<< (std::ostream& out,const Table& t){
 		out << arr[k] << std::endl;
 	}
 	return out;
-/*	int size = t.get_inserted();
-	Entry *temp;
-	temp = t.copy(size);
-	mergesort(temp, t.get_inserted());
-	for(int i = 0; i < t.get_inserted(); i++){
-		out << temp[i] << endl;
-	}
-	return out;*/
 }
 

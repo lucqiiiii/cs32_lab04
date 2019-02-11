@@ -23,12 +23,6 @@ public:
 
 	std::string get(unsigned int key) const;
 
-//	int get_inserted() const;
-
-//	int get_max_entries() const;
-
-//	std::vector<Entry> get_table(int i) const;
-
 	bool remove(unsigned int key);
 
 	friend std::ostream& operator<< (std::ostream& out, const Table& t);
@@ -41,8 +35,8 @@ private:
 	int inserted; // size	
 };
 
-void mergesort(Entry temp[], int n);
+void mergesort(Entry arr[], int size);
 
-void merge(Entry temp[], int n1, int n2);		
+void merge(Entry arr[], int n1, int n2);		
 
 #endif /* table_h */
