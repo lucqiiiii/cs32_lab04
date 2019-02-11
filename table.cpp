@@ -9,7 +9,8 @@ Table::Table(unsigned int max_entries){
 Table::Table(unsigned int entries, std::istream& input){
 	max_entries  = entries;
 	table = new std::vector<Entry>[max_entries];
-	int index;
+//	int index;
+	inserted = 0;
 	Entry e;
 	for(int i = 0; i < entries; i++){
 		input >> e;
