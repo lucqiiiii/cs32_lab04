@@ -120,8 +120,7 @@ std::ostream& operator<< (std::ostream& out,const Table& t){
 	int temp = 0;
 	for(int i = 0; i < t.max_entries; i++){
 		for(int j = 0; j < t.table[i].size(); j++){
-			arr[temp] = t.table[i][j];
-			temp++;
+			arr[temp++] = t.table[i][j];
 		}
 	}
 	mergesort(arr, t.inserted);
