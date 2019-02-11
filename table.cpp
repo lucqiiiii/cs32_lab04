@@ -72,19 +72,7 @@ int Table::hashFunction(int key) const{
 	return key%max_entries;
 }
 	
-/*int Table::get_max_entries() const{
-	return max_entries;
-}
 
-
-int Table::get_inserted() const{
-	return inserted;
-}
-
-vector<Entry> Table::get_table(int i ) const{
-	return table[i];
-}
-*/
 void merge(Entry arr[], int n1, int n2){
 	Entry *temp;
 	int copied = 0;
