@@ -1,7 +1,5 @@
 #include "table.h"
-#include <iostream>
-#include <vector>
-#include <iterator>
+
 Table::Table(unsigned int max_entries){
 	this -> max_entries = max_entries;
 	table = new std::vector<Entry>[max_entries];
